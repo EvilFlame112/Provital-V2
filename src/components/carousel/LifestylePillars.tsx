@@ -34,15 +34,6 @@ export const images = [
     }
 ]
 
-const tabs = [
-  { id: "nutrition", label: "Nutrition" },
-  { id: "physical", label: "Physical activity" },
-  { id: "restorative", label: "Restorative sleep" },
-  { id: "stress", label: "Stress management" },
-  { id: "social", label: "Social connection" },
-  { id: "substance", label: "Substance abuse" },
-];
-
 const cards = [
   {
     id: "nutrition",
