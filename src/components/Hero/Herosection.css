@@ -181,15 +181,18 @@ button svg {
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
-    height: 80vh;
+    height: 90vh;
+    padding-bottom: 20px;
   }
 
   .image-gallery {
     position: relative;
-    top: 38rem;
+    top: 40rem;
     flex-direction: row;
-    overflow-x: scroll;
-    gap: 6px; /* Adjust gap for smaller screens */
+    overflow-x: hidden;
+    overflow-wrap: normal;
+    gap: 0px; /* Adjust gap for smaller screens */
+    padding-bottom: 20px;
   }
 
   img {
@@ -200,6 +203,17 @@ button svg {
 
   .column {
     flex-direction: row;
+    align-items: flex-end;
+    justify-content: end;
+    animation: scroll-horizontal 10s linear infinite;
+    margin-right: 0;
+    animation-timing-function: linear;
+    gap: 8px;
+  }
+  .column1{
+    animation: scroll-horizontal 10s linear infinite;
+  }
+  .column2 {
     animation: scroll-horizontal 10s linear infinite;
   }
 
@@ -229,7 +243,7 @@ button svg {
   .search-bar {
     max-width: 100%;
     top: 53vh;
-    left: 4vw;
+    left: 5vw;
     transform: translateY(-50%);
   }
 
