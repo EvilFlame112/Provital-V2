@@ -1,0 +1,183 @@
+.container{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  bottom: 18rem;
+}
+
+.lifestylePillars {
+  position: relative;
+  margin: 20px 20px;
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  margin: 0 8px;
+  background: #ffffff;
+  border-radius: 50px;
+  color: #000000;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tabs .activeTab {
+  background: #000000;
+  color: #ffffff;
+}
+
+.arrows {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.arrow {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50px;
+}
+
+.arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cardContainer {
+  display: flex;
+  overflow: hidden; /* Ensures only visible cards show */
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.card {
+  z-index: 0;
+  flex: 0 0 493px; /* Fixed card width */
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  text-align: left;
+  padding: 0px;
+  position: relative;
+}
+
+.hiw{
+  padding-top: 50px;
+  padding-left: 80px;
+  color: #707070;
+  font-size: 16;
+  font-family: "Inter";
+  font-weight: 500;
+}
+.title-container{
+  display: flex;
+  position: relative;
+  left: 80px;
+  top: 10px;
+}
+
+.lam{
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 28px;
+  background: linear-gradient(289.5deg, #F1CA72 27.25%, #D96E6C 92.08%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.tsp{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  color: #707070;
+  padding-left: 10px;
+}
+
+.card img {
+  z-index: -1;
+  display: flex;
+  width: 100%;
+  height: 320px;
+  vertical-align: top;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 25px 25px 0px 0px;
+}
+
+.content{
+  padding: 0px 30px;
+  font-family: "Inter";
+}
+
+.maintext{
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.subtext{
+  color: #919191;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.pressure {
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  top: 260px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.87);
+  backdrop-filter: blur(15px);
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+.statunit{
+  color: #919191;
+  padding-left: 3px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.stat{
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.statimg{
+  position: relative;
+  margin: 0;
+  padding-right: 5px;
+  padding-bottom: 0;
+  max-width: 25px;
+  max-height: 23px;
+}
+
+.focusedCard {
+  box-shadow: 1px 1px 10px #9494949f;
+}

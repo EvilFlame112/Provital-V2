@@ -1,0 +1,10 @@
+.colour-element3 {
+    z-index: -1;
+    position: absolute;
+    width: 250px;
+    height: 246px;
+    right: 0px;
+    top: 0px;
+    background: rgba(207, 225, 240, 0.44);
+    filter: blur(75px);
+}

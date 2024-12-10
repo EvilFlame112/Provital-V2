@@ -1,0 +1,11 @@
+.colour-element{
+
+position: absolute;
+width: 318px;
+height: 313px;
+left: 347px;
+top: 301px;
+
+background: rgba(251, 241, 220, 0.96);
+filter: blur(75px);
+}
