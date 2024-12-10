@@ -181,7 +181,7 @@ button svg {
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
-    height: 100vh;
+    height: 80vh;
   }
 
   .image-gallery {

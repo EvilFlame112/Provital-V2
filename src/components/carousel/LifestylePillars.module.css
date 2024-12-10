@@ -1,9 +1,9 @@
-.container{
+.container {
   display: block;
   width: 100%;
   height: 100%;
   position: relative;
-  bottom: 18rem;
+  bottom: 0; /* Remove the bottom offset */
 }
 
 .lifestylePillars {
@@ -59,14 +59,14 @@
 
 .cardContainer {
   display: flex;
-  overflow: hidden; /* Ensures only visible cards show */
+  overflow: hidden;
   scroll-behavior: smooth;
   padding: 10px;
 }
 
 .card {
   z-index: 0;
-  flex: 0 0 493px; /* Fixed card width */
+  flex: 0 0 493px;
   margin-right: 20px;
   border: 1px solid #ddd;
   border-radius: 25px;
@@ -76,40 +76,48 @@
   position: relative;
 }
 
-.hiw{
+.hiw {
   padding-top: 50px;
   padding-left: 80px;
   color: #707070;
-  font-size: 16;
+  font-size: 16px;
   font-family: "Inter";
   font-weight: 500;
 }
-.title-container{
+
+.title-container {
   display: flex;
   position: relative;
   left: 80px;
   top: 10px;
+  flex-wrap: wrap; /* Ensure titles wrap properly */
 }
 
-.lam{
+.lam {
   font-family: "Inter";
   font-style: italic;
   font-weight: 600;
   font-size: 28px;
-  background: linear-gradient(289.5deg, #F1CA72 27.25%, #D96E6C 92.08%);
+  background: linear-gradient(289.5deg, #f1ca72 27.25%, #d96e6c 92.08%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+  white-space: nowrap; /* Prevent text overflow */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for overflow */
 }
 
-.tsp{
-  font-family: 'Inter';
+.tsp {
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 28px;
   color: #707070;
   padding-left: 10px;
+  white-space: nowrap; /* Prevent text overflow */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for overflow */
 }
 
 .card img {
@@ -121,20 +129,21 @@
   margin: 0px;
   padding: 0px;
   border-radius: 25px 25px 0px 0px;
+  object-fit: cover; /* Ensure the image maintains its aspect ratio */
 }
 
-.content{
+.content {
   padding: 0px 30px;
   font-family: "Inter";
 }
 
-.maintext{
+.maintext {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 0px;
 }
 
-.subtext{
+.subtext {
   color: #919191;
   font-size: 16px;
   font-weight: 400;
@@ -156,20 +165,20 @@
   border-radius: 25px;
 }
 
-.statunit{
+.statunit {
   color: #919191;
   padding-left: 3px;
   font-weight: 400;
   font-size: 14px;
 }
 
-.stat{
+.stat {
   color: #000000;
   font-weight: 500;
   font-size: 16px;
 }
 
-.statimg{
+.statimg {
   position: relative;
   margin: 0;
   padding-right: 5px;
@@ -180,4 +189,58 @@
 
 .focusedCard {
   box-shadow: 1px 1px 10px #9494949f;
+}
+
+/* New styles for mobile */
+@media (max-width: 768px) {
+  .tabs,
+  .arrows {
+    display: none;
+  }
+
+  .lifestylePillars{
+    margin: 0;
+  }
+
+  .cardContainer {
+    scroll-snap-type: x mandatory;
+    padding: 0; /* Ensure container fills the screen */
+    left: 0;
+    justify-content: flex-start; /* Stick cards to the left */
+  }
+
+  .card {
+    flex: 0 0 282px; /* Adjust card width for mobile */
+    scroll-snap-align: start; /* Align to the start for left sticking */
+    margin-right: 10px;
+    height: 418px; /* Adjust card height for mobile */
+  }
+
+  .card img {
+    height: 255px; /* Adjust image height for mobile */
+  }
+
+  .title-container {
+    left: 0;
+    top: 0;
+    padding: 0 20px;
+  }
+
+  .lam {
+    font-size: 18px;
+  }
+  .tsp{
+    font-size: 16px;
+    padding-left: 2px;
+  }
+  .hiw{
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding-bottom: 10px;
+  }
+
+  .pressure{
+    top: 190px;
+  }
 }

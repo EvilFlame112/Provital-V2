@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./LifestylePillars.module.css";
 import image1 from './assets/image1.png'
 import image2 from './assets/image2.png'
@@ -161,6 +161,21 @@ const LifestylePillars = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
+  const handleSwipe = (event: React.TouchEvent) => {
+    const container = cardContainerRef.current;
+    if (container) {
+      const startX = event.touches[0].pageX;
+      container.ontouchend = (e) => {
+        const endX = e.changedTouches[0].pageX;
+        if (endX < startX - 50 && activeIndex < cards.length - 1) {
+          setActiveIndex(activeIndex + 1);
+        } else if (endX > startX + 50 && activeIndex > 0) {
+          setActiveIndex(activeIndex - 1);
+        }
+      };
+    }
+  };
+
   const scrollToCard = (index: number) => {
     const container = cardContainerRef.current;
     if (container) {
@@ -171,6 +186,12 @@ const LifestylePillars = () => {
       });
     }
   };
+
+  useEffect(() => {
+    scrollToCard(activeIndex);
+  }, [activeIndex]);
+
+  const isMobile = window.innerWidth <= 768;
 
   const handleArrowClick = (direction: "left" | "right") => {
     const newIndex =
@@ -194,57 +215,63 @@ const LifestylePillars = () => {
         <div className={styles["tsp"]}>The six pillars</div>
       </div>
       <div className={styles.lifestylePillars}>
-        {/* Tabs */}
-        <div className={styles.tabs}>
-          {tabs.map((tab, index) => (
-            <button
-              key={tab.id}
-              onClick={() => handleTabClick(index)}
-              className={`${styles.tab} ${
-                index === activeIndex ? styles.activeTab : ""
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        {!isMobile && (
+          <>
+            <div className={styles.tabs}>
+              {cards.map((card, index) => (
+                <button
+                  key={card.id}
+                  onClick={() => handleTabClick(index)}
+                  className={`${styles.tab} ${
+                    index === activeIndex ? styles.activeTab : ""
+                  }`}
+                >
+                  {card.title}
+                </button>
+              ))}
+            </div>
 
-        {/* Arrow Buttons */}
-        <div className={styles.arrows}>
-          <button
-            className={styles.arrow}
-            onClick={() => handleArrowClick("left")}
-            disabled={activeIndex === 0}
-          >
-            &#8592;
-          </button>
-          <button
-            className={styles.arrow}
-            onClick={() => handleArrowClick("right")}
-            disabled={activeIndex === cards.length - 1}
-          >
-            &#8594;
-          </button>
-        </div>
+            <div className={styles.arrows}>
+              <button
+                className={styles.arrow}
+                onClick={() => handleArrowClick("left")}
+                disabled={activeIndex === 0}
+              >
+                &#8592;
+              </button>
+              <button
+                className={styles.arrow}
+                onClick={() => handleArrowClick("right")}
+                disabled={activeIndex === cards.length - 1}
+              >
+                &#8594;
+              </button>
+            </div>
+          </>
+        )}
 
-        {/* Cards */}
-        <div className={styles.cardContainer} ref={cardContainerRef}>
+        <div
+          className={styles.cardContainer}
+          ref={cardContainerRef}
+          onTouchStart={handleSwipe}
+        >
           {cards.map((card, index) => (
             <div
               key={card.id}
               className={`${styles.card} ${
                 index === activeIndex ? styles.focusedCard : ""
               }`}
+              style={{ width: isMobile ? "282px" : "auto", height: isMobile ? "418px" : "auto" }}
             >
-              <img src={card.image} alt={card.title} />
+              <img src={card.image} alt={card.title} style={{ width: "282px", height: isMobile ? "255px" : "320px" }} />
               <div className={styles.pressure}>
-                <div className={styles["statimg"]}>{card.statimg}</div>
-                <div className={styles['stat']}>{card.stat}</div>
-                <div className={styles["statunit"]}>{card.statunit}</div>
+                <div className={styles.statimg}>{card.statimg}</div>
+                <div className={styles.stat}>{card.stat}</div>
+                <div className={styles.statunit}>{card.statunit}</div>
               </div>
               <div className={styles.content}>
-                <h3 className={styles["maintext"]}>{card.title}</h3>
-                <p className={styles["subtext"]}>{card.description}</p>
+                <h3 className={styles.maintext}>{card.title}</h3>
+                <p className={styles.subtext}>{card.description}</p>
               </div>
             </div>
           ))}
@@ -255,3 +282,4 @@ const LifestylePillars = () => {
 };
 
 export default LifestylePillars;
+
