@@ -2,7 +2,7 @@
     display: flex;
     position: absolute;
     left: 0;
-    bottom: 12vh;
+    bottom: 10vh;
     height: 35%;
     width: 100%;
     z-index: 1000;
@@ -18,7 +18,7 @@
         display: flex;
         position: absolute;
         left: 0;
-        bottom: 20rem;
+        bottom: 21rem;
         width: 100%;
         height: 35%;
         z-index: -1;
