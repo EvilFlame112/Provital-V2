@@ -187,7 +187,7 @@ button svg {
 
   .image-gallery {
     position: relative;
-    top: 40rem;
+    top: 30rem;
     flex-direction: row;
     overflow-x: hidden;
     overflow-wrap: normal;
